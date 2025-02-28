@@ -1,6 +1,6 @@
 {
-  "id": "e3da56ac-bc7f-4bba-8340-196a5bf0f279",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "eed8c077-a2f4-4471-b255-e9b08b8f6b2d",
+  "prevId": "e3da56ac-bc7f-4bba-8340-196a5bf0f279",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -10,6 +10,12 @@
       "columns": {
         "userId": {
           "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
           "type": "text",
           "primaryKey": false,
           "notNull": true
