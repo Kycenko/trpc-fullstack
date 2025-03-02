@@ -1,20 +1,13 @@
 {
-	"version": "7",
-	"dialect": "postgresql",
-	"entries": [
-		{
-			"idx": 0,
-			"version": "7",
-			"when": 1740746949440,
-			"tag": "0000_clean_randall_flagg",
-			"breakpoints": true
-		},
-		{
-			"idx": 1,
-			"version": "7",
-			"when": 1740749224153,
-			"tag": "0001_boring_titania",
-			"breakpoints": true
-		}
-	]
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1740916792804,
+      "tag": "0000_typical_ulik",
+      "breakpoints": true
+    }
+  ]
 }

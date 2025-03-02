@@ -1,4 +1,3 @@
-import { relations } from 'drizzle-orm'
 import {
 	integer,
 	pgTable,
@@ -39,21 +38,6 @@ export const accounts = pgTable(
 		compoundKey: primaryKey(account.provider, account.providerAccountId)
 	})
 )
-
-export const sessions = pgTable('session', {
-	sessionToken: text('sessionToken').notNull().primaryKey(),
-	userId: text('user_id')
-		.notNull()
-		.references(() => users.id, { onDelete: 'cascade' }),
-	expires: timestamp('expires', { mode: 'date' }).notNull()
-})
-
-export const sessionsRelations = relations(sessions, ({ one }) => ({
-	user: one(users, {
-		fields: [sessions.userId],
-		references: [users.id]
-	})
-}))
 
 export const verificationTokens = pgTable(
 	'verificationToken',
