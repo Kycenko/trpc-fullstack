@@ -3,7 +3,6 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 
 export default function Home() {
 	const session = useSession()
-	console.log(session.data)
 
 	const SignIn = () => {
 		return <button onClick={() => void signIn('google')}>Sign in</button>
