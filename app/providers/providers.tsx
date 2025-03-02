@@ -4,9 +4,19 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 import { SessionProvider } from 'next-auth/react'
 import { ReactNode, useState } from 'react'
+import { ThemeProvider } from './theme-provider'
 
 export function Providers({ children }: { children: ReactNode }) {
-	const [queryClient] = useState(() => new QueryClient({}))
+	const [queryClient] = useState(
+		() =>
+			new QueryClient({
+				defaultOptions: {
+					queries: {
+						refetchOnWindowFocus: false
+					}
+				}
+			})
+	)
 	const [trpcClient] = useState(() =>
 		trpc.createClient({
 			links: [
@@ -24,7 +34,16 @@ export function Providers({ children }: { children: ReactNode }) {
 			queryClient={queryClient}
 		>
 			<QueryClientProvider client={queryClient}>
-				<SessionProvider>{children}</SessionProvider>
+				<SessionProvider>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange
+					>
+						{children}
+					</ThemeProvider>
+				</SessionProvider>
 			</QueryClientProvider>
 		</trpc.Provider>
 	)

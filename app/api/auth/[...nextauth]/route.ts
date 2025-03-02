@@ -1,21 +1,25 @@
 import db from '@/db'
 import { DrizzleAdapter } from '@auth/drizzle-adapter'
 import NextAuth, { NextAuthOptions } from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
-
 export const authOptions: NextAuthOptions = {
 	adapter: DrizzleAdapter(db),
 	session: {
 		strategy: 'jwt'
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	pages: {
-		signIn: '/'
-	},
+	// pages: {
+	// 	signIn: '/auth/sign-in'
+	// },
 	providers: [
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID!,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+		}),
+		GithubProvider({
+			clientId: process.env.GITHUB_CLIENT_ID!,
+			clientSecret: process.env.GITHUB_CLIENT_SECRET!
 		})
 	],
 	callbacks: {
