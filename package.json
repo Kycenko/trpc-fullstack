@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"format": "prettier --write ./"
+		"format": "prettier --write ./",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@auth/drizzle-adapter": "^1.8.0",
@@ -28,7 +29,6 @@
 		"next-auth": "^4.24.11",
 		"next-themes": "^0.4.4",
 		"pg": "^8.13.3",
-		"prettier": "^3.5.2",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"tailwind-merge": "^3.0.2",
@@ -38,6 +38,7 @@
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
 		"@tailwindcss/postcss": "^4",
+		"@trivago/prettier-plugin-sort-imports": "^5.2.2",
 		"@types/node": "^20",
 		"@types/pg": "^8.11.11",
 		"@types/react": "^19",
@@ -45,7 +46,12 @@
 		"drizzle-kit": "^0.30.5",
 		"eslint": "^9",
 		"eslint-config-next": "15.2.0",
+		"eslint-plugin-react": "^7.37.4",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"husky": "^9.1.7",
+		"prettier": "^3.5.2",
 		"tailwindcss": "^4",
-		"typescript": "^5"
+		"typescript": "^5",
+		"typescript-eslint": "^8.25.0"
 	}
 }
