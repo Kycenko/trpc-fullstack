@@ -19,6 +19,7 @@ export function Providers({ children }: { children: ReactNode }) {
 				}
 			})
 	)
+
 	const [trpcClient] = useState(() =>
 		trpc.createClient({
 			links: [

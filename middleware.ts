@@ -7,7 +7,6 @@ export async function middleware(request: NextRequest) {
 
 	if (!token && !request.nextUrl.pathname.startsWith('/auth'))
 		return NextResponse.redirect(new URL('/auth/sign-in', request.url))
-
 	if (token && request.nextUrl.pathname.startsWith('/auth'))
 		return NextResponse.redirect(new URL('/', request.url))
 

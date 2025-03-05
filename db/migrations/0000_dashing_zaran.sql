@@ -1,5 +1,5 @@
 CREATE TABLE "account" (
-	"userId" text NOT NULL,
+	"userId" uuid NOT NULL,
 	"type" text NOT NULL,
 	"provider" text NOT NULL,
 	"providerAccountId" text NOT NULL,
@@ -14,9 +14,10 @@ CREATE TABLE "account" (
 );
 --> statement-breakpoint
 CREATE TABLE "user" (
-	"id" text PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" text,
 	"email" text NOT NULL,
+	"password" text NOT NULL,
 	"emailVerified" timestamp,
 	"image" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
